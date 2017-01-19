@@ -3,8 +3,8 @@ use strict;
 use warnings;
 use Getopt::Long;
 
-my $warn = 92.0;
-my $crit = 96.0;
+my $warn = 80.0;
+my $crit = 90.0;
 
 sub get_thinpools {
   $ENV{'LC_ALL'} = 'C';  # Set locale for lvs call
@@ -89,7 +89,7 @@ if (scalar @thinpools == 0) {
     exit 0;
   } else {
     print "UNKNOWN: No thinpools found.\n";
-    exit 3;
+    exit 0;
   }
 } else {
   check_thinpools();
